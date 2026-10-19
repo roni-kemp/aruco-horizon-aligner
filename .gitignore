@@ -179,3 +179,12 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+.venv/
+__pycache__/
+*.py[cod]
+Roni_settings
+archive
+camera_calibration.npz
+calibration_views/
+aruco_*.png

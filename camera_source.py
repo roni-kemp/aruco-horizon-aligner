@@ -18,9 +18,12 @@ class PicameraSource:
         if not use_preview:
             self.camera.configure(camera_config="still")
         else:
+            full_res = self.camera.sensor_resolution  # e.g. (4608, 2592) for imx708
+
             self.camera.configure(
                 self.camera.create_preview_configuration(
-                    main={"size": capture_size, "format": "RGB888"}
+                    main={"size": capture_size, "format": "RGB888"},
+                    raw={"size": full_res},
                 )
             )
         self.camera.set_controls(
@@ -41,3 +44,4 @@ class PicameraSource:
 
     def close(self) -> None:
         self.camera.stop()
+
